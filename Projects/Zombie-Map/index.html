@@ -1,5 +1,5 @@
 <html>
-    
+
 <head>
     <link rel="stylesheet" href="css/style.css">
     <title>My Page Title</title>
@@ -7,14 +7,21 @@
 </head>
 
 <body>
- 
-   Items I want to appear on my page will go here
+
+    Items I want to appear on my page will go here
     <div id="zombie_map">
-
         <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVv9LOf-wJiOp9kM66yc9Ti3NvyHarrUc&callback=initMap">
-    </script>
-
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVv9LOf-wJiOp9kM66yc9Ti3NvyHarrUc&callback=initMap">
+            </script>
     </div>
+    <form>
+        Select an emoji
+        <select id="icon_to_use">
+            <option value="images/zombie.png">Zombie</option>
+            <option value="images/hospital.png">Hospital</option>
+            <option value="images/fight.png">Fight</option>
+        </select>
+    </form>
 </body>
+
 </html>
