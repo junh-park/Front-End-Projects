@@ -21,6 +21,12 @@
                 center: { lat: -37.840935, lng: 144.946457 }
             });
 
+            if(navigator.geolocation) {
+                navigator.geolocation.watchPosition(set_my_position);
+            } else {
+                alert("Geolocation doesn't work in your browser");
+            }
+
             for (let i = 0; i < markers.length; i++) {
                 let markerData = markers[i].trim();
                 markerData = markerData.split(" ");
@@ -41,18 +47,14 @@
             }
         }
 
-        if(navigator.geolocation) {
-                navigator.geolocation.watchPosition(set_my_position);
-            } else {
-                alert("Geolocation doesn't work in your browser");
-            }
-
         function set_my_position(position) {
             let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            let marker = new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: pos,
+                map: zombie_map,
                 icon: "images/smiley.png"
-            })
+            });
+
             console.log(position.coords.latitude, position.coords.longitude);
         }
 
