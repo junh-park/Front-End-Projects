@@ -14,14 +14,71 @@
     </style>
     <script>
         let zombie_map;
+        let allMarkers = [];
         function initMap() {
             zombie_map = new google.maps.Map(document.getElementById('zombie_map'), {
                 zoom: 10,
                 center: { lat: -37.840935, lng: 144.946457 }
             });
+
+            for (let i = 0; i < markers.length; i++) {
+                let markerData = markers[i].trim();
+                markerData = markerData.split(" ");
+                
+                let latitude = markerData[0];
+                let longitude = markerData[1];
+                let emoji = markerData[2];
+
+                let markerPosition = new google.maps.LatLng(latitude, longitude);
+
+                var marker = new google.maps.Marker({
+                position: markerPosition,
+                map: zombie_map,
+                icon: emoji
+            });    
+
+            allMarkers.push(marker);
+            }
         }
 
+        if(navigator.geolocation) {
+                navigator.geolocation.watchPosition(set_my_position);
+            } else {
+                alert("Geolocation doesn't work in your browser");
+            }
+
+        function set_my_position(position) {
+            let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            let marker = new google.maps.Marker({
+                position: pos,
+                icon: "images/smiley.png"
+            })
+            console.log(position.coords.latitude, position.coords.longitude);
+        }
+
+        let data = `-37.83826122017263 144.95939158134297 images/zombie.png
+                    -37.8401591590663 144.9640264385207 images/zombie.png
+                    -37.84239595292358 144.95810412101582 images/zombie.png
+                    -37.8353464332149 144.9493493907912 images/zombie.png
+                    -37.81650627708324 144.9593954167194 images/hospital.png
+                    -37.820981231221836 144.97055340622134 images/hospital.png
+                    -37.81352282361109 144.97450161789126 images/hospital.png
+                    -37.825862689963905 144.95836544845767 images/fight.png
+                    -37.82599828143119 144.96677685592837 images/fight.png
+                    -37.830395486901516 144.97953414916992 images/fight.png
+                    -37.824642355547404 144.9714117131061 images/fight.png
+                    `;
+
         let markers = data.split("\n")
+
+        function place_marker(location, emoji) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: zombie_map,
+                icon: emoji
+            });
+            console.log(location.lat() + " " + location.lng() + " " + emoji);
+        }
     </script>
 </head>
 
