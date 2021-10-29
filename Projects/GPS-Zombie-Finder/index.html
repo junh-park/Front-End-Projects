@@ -15,13 +15,22 @@
     <script>
         let zombie_map;
         let allMarkers = [];
+        let oldPosition;
+        let tolerance;
+        let score;
+
         function initMap() {
             zombie_map = new google.maps.Map(document.getElementById('zombie_map'), {
                 zoom: 10,
                 center: { lat: -37.840935, lng: 144.946457 }
             });
 
-            if(navigator.geolocation) {
+            oldPosition = new google.maps.Marker({
+                position: { lat: -37.840935, lng: 144.946457 },
+                map: zombie_map
+            });
+
+            if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(set_my_position);
             } else {
                 alert("Geolocation doesn't work in your browser");
@@ -30,32 +39,21 @@
             for (let i = 0; i < markers.length; i++) {
                 let markerData = markers[i].trim();
                 markerData = markerData.split(" ");
-                
+
                 let latitude = markerData[0];
                 let longitude = markerData[1];
                 let emoji = markerData[2];
 
                 let markerPosition = new google.maps.LatLng(latitude, longitude);
-
                 var marker = new google.maps.Marker({
-                position: markerPosition,
-                map: zombie_map,
-                icon: emoji
-            });    
+                    position: markerPosition,
+                    map: zombie_map,
+                    icon: emoji
+                });
 
-            allMarkers.push(marker);
+
+                allMarkers.push(marker);
             }
-        }
-
-        function set_my_position(position) {
-            let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            var marker = new google.maps.Marker({
-                position: pos,
-                map: zombie_map,
-                icon: "images/smiley.png"
-            });
-
-            console.log(position.coords.latitude, position.coords.longitude);
         }
 
         let data = `-37.83826122017263 144.95939158134297 images/zombie.png
@@ -73,14 +71,36 @@
 
         let markers = data.split("\n")
 
-        function place_marker(location, emoji) {
+        function set_my_position(position) {
+            oldPosition.setMap(null);
+            let pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             var marker = new google.maps.Marker({
-                position: location,
+                position: pos,
                 map: zombie_map,
-                icon: emoji
+                icon: "images/smiley.png"
             });
-            console.log(location.lat() + " " + location.lng() + " " + emoji);
+            oldPosition = marker;
+
+            for (let i = 0; i < allMarkers.length; i++) {
+                let distance = google.maps.geometry.spherical.computeDistanceBetween(pos, allMarkers[i].getPosition());
+
+                if (distance < tolerance) {
+                    let item = allMarkers[i].getIcon();
+                    item = item.replace(".png", "");
+
+                    alert("Found the " + item);
+                    allMarkers[i].setMap(null);
+                }
+
+                if (item != "zombie") {
+                    score += 10;
+                    alert("Your score is " + score);
+                }
+            }
+
+            console.log(position.coords.latitude, position.coords.longitude);
         }
+
     </script>
 </head>
 
@@ -88,8 +108,8 @@
     My zombie map
     <div id="zombie_map">
         <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVv9LOf-wJiOp9kM66yc9Ti3NvyHarrUc&callback=initMap">
-            </script>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVv9LOf-wJiOp9kM66yc9Ti3NvyHarrUc&callback=initMap&libraries=geometry"></script>
+        </script>
     </div>
     <form>
         Select an emoji

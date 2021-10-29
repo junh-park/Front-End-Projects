@@ -1,0 +1,77 @@
+body,
+html {
+    height: 100%;
+    margin: 0px;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: white;
+}
+
+h3 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font: 20px "Lato", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.caption {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+.border {
+    background-color: #41bac1;
+    color: white;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+.textSection {
+    background-color: #070408;
+    padding: 50px 80px;
+    opacity: 0.9;
+}
+
+.choco-cake {
+    background-image: url("images/chococake.JPG");
+}
+
+.kitchen-equipment {
+    background-image: url("images/utensils.jpg");
+}
+
+.ingredient {
+    background-image: url("images/ingredients.jpg");
+}
+
+.choco-cake,
+.kitchen-equipment,
+.ingredient {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #642580;
+    background-size: cover;
+    min-height: 100%;
+    width: auto;
+    background-attachment: fixed;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .kitchen-equipment,
+    .choco-cake,
+    .ingredient {
+        background-attachment: scroll;
+    }
+}
+
+@media(max-width: 720px) {
+    .kitchen-equipment,
+    .choco-cake,
+    .ingredient {
+        background-attachment: scroll;
+    }
+}
