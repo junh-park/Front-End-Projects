@@ -22,11 +22,17 @@
         function initMap() {
             zombie_map = new google.maps.Map(document.getElementById('zombie_map'), {
                 zoom: 10,
-                center: { lat: -37.840935, lng: 144.946457 }
+                center: {
+                    lat: -37.840935,
+                    lng: 144.946457
+                }
             });
 
             oldPosition = new google.maps.Marker({
-                position: { lat: -37.840935, lng: 144.946457 },
+                position: {
+                    lat: -37.840935,
+                    lng: 144.946457
+                },
                 map: zombie_map
             });
 
@@ -100,15 +106,13 @@
 
             console.log(position.coords.latitude, position.coords.longitude);
         }
-
     </script>
 </head>
 
 <body>
     My zombie map
     <div id="zombie_map">
-        <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVv9LOf-wJiOp9kM66yc9Ti3NvyHarrUc&callback=initMap&libraries=geometry"></script>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVv9LOf-wJiOp9kM66yc9Ti3NvyHarrUc&callback=initMap&libraries=geometry"></script>
         </script>
     </div>
     <form>
