@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style type="text/css">
+        #meme_text {
+            background-color: transparent;
+            font-size: 40px;
+            font-family: "Impact";
+            color: white;
+            text-shadow: black 0px 0px 10px;
+            width: 600px;
+            position: absolute;
+            left: 15px;
+            top: 400px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function updateText() {
+            let userText = document.getElementById('user_text');
+            let memeText = document.getElementById('meme_text');
+            console.log(userText.value);
+            memeText.innerHTML = userText.value;
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Meme text: <input type="text" id="user_text" maxlength="70" oninput="updateText()">
+        <p>
+            Select a picture <input type="file" id="user_text">
+            <p>
+    </form>
+    <div id="meme_text">Example text here</div>
+    <div id="meme_picture"><img src="" height="500" width="600"></div>
+</body>
+
+</html>

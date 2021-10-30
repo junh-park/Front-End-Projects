@@ -68,7 +68,7 @@ h3 {
     }
 }
 
-@media(max-width: 720px) {
+@media (max-width: 720px) {
     .kitchen-equipment,
     .choco-cake,
     .ingredient {

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <script src='script.js'></script>
+    <style>
+        #art {
+            display: table;
+            border-spacing: 1px;
+            background-color: black;
+            border: 5px solid black;
+        }
+        
+        .row {
+            display: table-row;
+        }
+        
+        .pixel {
+            display: table-cell;
+            background-color: white;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .pen {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="palette">
+        <div class="pen" style="background-color: white;" onclick="setPenColour('white')"></div>
+        <div class="pen" style="background-color: black;" onclick="setPenColour('black')"></div>
+        <div class="pen" style="background-color: green;" onclick="setPenColour('green')"></div>
+        <div class="pen" style="background-color: red;" onclick="setPenColour('red')"></div>
+        <div class="pen" style="background-color: blue;" onclick="setPenColour('blue')"></div>
+    </div>
+    <div id="art">
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+        <div class="row">
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+            <div class="pixel" onclick="setPixelColour(this)"></div>
+        </div>
+    </div>
+    <button onclick="clearAll()">Clear</button>
+</body>
+
+</html>
