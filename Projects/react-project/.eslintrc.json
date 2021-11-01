@@ -1,0 +1,31 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2021,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "no-constant-condition": "warn",
+        "no-this-before-super":"warn",
+        "no-undef": "warn",
+        "no-unreachable":"warn",
+        "no-unused-vars":"warn",
+        "constructor-super":"warn",
+        "valid-typeof":"warn",
+        "no-extra-semi":"warn",
+        "react/prop-types": "off"
+    }
+}
