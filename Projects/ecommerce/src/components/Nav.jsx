@@ -5,7 +5,8 @@ import { Badge } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const Container = styled.div`
-    height: 60px;
+    height: 100px;
+    background-color: rgb(227, 246, 240);
 `
 const Wrapper = styled.div`
     padding: 10px 20px;
@@ -21,7 +22,6 @@ const Left = styled.div`
 const Center = styled.div`
     flex: 1;
     text-align: center;
-
 `
 const Right = styled.div`
     flex: 1;
@@ -30,7 +30,7 @@ const Right = styled.div`
     justify-content: flex-end;
 `
 const Language = styled.span`
-    font-size: 14px;
+    font-size: 18px;
     cursor: pointer;
 `
 const SearchContainer = styled.div`
@@ -46,7 +46,7 @@ const Logo = styled.h1`
     font-weight: bold;
 `
 const MenuItem = styled.div`
-    font-size: 14px;
+    font-size: 24px;
     cursor: pointer;
     margin: 25px;
 `
@@ -69,7 +69,7 @@ const Navbar = () => {
                     <MenuItem>Register</MenuItem>
                     <MenuItem>Sign In</MenuItem>
                     <MenuItem>
-                        <Badge badgeContent={4} color="primary">
+                        <Badge badgeContent={2} color="primary">
                             <ShoppingCartIcon />
                         </Badge>
                     </MenuItem>

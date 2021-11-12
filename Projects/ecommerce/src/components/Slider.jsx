@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState }  from 'react'
 import styled from 'styled-components'
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
 import { items } from "../data"
@@ -8,7 +8,6 @@ const Container = styled.div`
     height: 100vh;
     display: flex;
     background-color: #c0ebff;
-    margin-top: 40px;
     overflow: hidden;
 `
 const Arrow = styled.div`
@@ -32,7 +31,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
     display: flex;
     height: 100%;
-    transform: translateX(0vw);
+    transition: all 1.5s;
+    transform: translateX(${props=>props.slideIndex * -100}vw);
 `
 const Slide = styled.div`
     display: flex;
@@ -68,25 +68,29 @@ const Button = styled.button`
     cursor: pointer;
 `
 const Slider = () => {
-    const [slide, setSlideIndex] = useState(0)
+    const [slideIndex, setSlideIndex ] = useState(0);
     const handleClick = (direction) => {
-
+        if (direction === "left") {
+            setSlideIndex(slideIndex > 0 ? slideIndex-1 : 1);
+        } else {
+            setSlideIndex(slideIndex < 1 ? slideIndex + 1 : 0);
+        }
     }
     return (
         <Container>
             <Arrow direction="left" onClick={() => handleClick("left")}>
                 <ArrowLeftOutlined />
             </Arrow>
-            <Wrapper>
+            <Wrapper slideIndex={slideIndex}>
                 {items.map(item => (
-                    <Slide bg={item.bg}>
+                    <Slide key={item.id} bg={item.bg}>
                         <ImgContainer>
                             <Image src={item.img} />
                         </ImgContainer>
                         <InfoContainer>
                             <Title>{item.title}</Title>
                             <Desc>{item.desc}</Desc>
-                            <Button></Button>
+                            <Button>Take me</Button>
                         </InfoContainer>
                     </Slide>
                 ))}
@@ -97,6 +101,5 @@ const Slider = () => {
         </Container>
     )
 }
-
 
 export default Slider
