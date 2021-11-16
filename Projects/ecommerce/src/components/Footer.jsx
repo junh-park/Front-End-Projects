@@ -5,8 +5,11 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import RoomIcon from '@material-ui/icons/Room';
 import SmartphoneIcon from '@material-ui/icons/Smartphone';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+import {mobile} from '../responsive'
+
 const Container = styled.div`
     display: flex;
+    ${mobile({flexDirection: "column", textAlign: "center"})}
 `
 const Left = styled.div`
     flex: 1;
@@ -20,8 +23,10 @@ const Center = styled.div`
 `
 const Right = styled.div`
     flex: 1;
+    ${mobile({justifyContent: "center"})}
 `
 const Logo = styled.h1`
+    font-family: 'Pacifico', cursive;
     flex: 1;
 `
 const Desc = styled.p`
@@ -29,6 +34,7 @@ const Desc = styled.p`
 `
 const SocialContainer = styled.div`
     display: flex;
+    ${mobile({flexDirection: "row", justifyContent: "center"})}
 `
 const SocialIcon = styled.div`
     width: 40px;
@@ -41,6 +47,7 @@ const SocialIcon = styled.div`
     align-items: center;
     cursor: pointer;
     margin-right: 20px;
+    
 `
 const Title = styled.h3`
     margin-bottom: 30px;
@@ -54,6 +61,8 @@ const List = styled.ul`
 `
 const ListItem = styled.li`
     width: 50%;
+    margin: 5px 0px;
+    font-weight: 400;
 `
 const ContactItem = styled.p`
     margin-bottom: 20px;
@@ -65,8 +74,8 @@ const Footer = () => {
     return (
         <Container>
             <Left>
-                <Logo>JUNP.</Logo>
-                <Desc></Desc>
+                <Logo>JUNIFAV</Logo>
+                <Desc>eCommerce Portfolio using React.js, Styled-components and Node.js</Desc>
                 <SocialContainer>
                     <SocialIcon color="E4405F">
                         <InstagramIcon />
@@ -92,9 +101,9 @@ const Footer = () => {
             </Center>
             <Right>
                 <Title>Contact</Title>
-                    <ContactItem><RoomIcon style={{marginRight:"10px"}}/> Melbourne, VIC, Australia</ContactItem>
-                    <ContactItem><SmartphoneIcon style={{marginRight:"10px"}}/> 0414 191 580</ContactItem>
-                    <ContactItem><EmailOutlinedIcon style={{marginRight:"10px"}}/> junpark0118@hotmail.com</ContactItem>
+                <ContactItem><RoomIcon style={{ marginRight: "10px" }} /> Melbourne, VIC, Australia</ContactItem>
+                <ContactItem><SmartphoneIcon style={{ marginRight: "10px" }} /> 0414 191 580</ContactItem>
+                <ContactItem><EmailOutlinedIcon style={{ marginRight: "10px" }} /> junpark0118@hotmail.com</ContactItem>
             </Right>
         </Container>
     )

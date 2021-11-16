@@ -57,7 +57,7 @@ export const categories = [
     {
         id: 4,
         img: "https://litb-cgis.rightinthebox.com/images/640x853/202105/bps/product/inc/luepte1621322325203.jpg?fmt=webp&v=1",
-        title: "Sweamwear"
+        title: "Green Shirt"
     },
     {
         id: 4,
