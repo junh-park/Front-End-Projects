@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MatchDetailsBox = () => {
+const MatchDetails = () => {
     return (
         <div className="MatchDetail">
             Match Detail
@@ -8,4 +8,4 @@ const MatchDetailsBox = () => {
     )
 }
 
-export default MatchDetailsBox
+export default MatchDetails

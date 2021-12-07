@@ -1,18 +1,29 @@
-import React from 'react'
+import {React, useEffect} from 'react'
 import MatchCard from '../components/MatchCard'
-import MatchDetailsBox from '../components/MatchDetailsBox'
+import MatchDetails from '../components/MatchDetails'
 
 const TeamPage = () => {
+    useEffect(
+        () => {
+            const fetchMatches = async () => {
+                const res = fetch('http://localhost:8080/teams/Melbourne%20Stars')
+                const data  = await res.json()
+                console.log(data)
+            }
+            fetchMatches();
+        }
+    );
+
     return (
         <div>
            <h1>Team Name</h1>
            <h3>Latest Match</h3>
-           <MatchDetailsBox />
            <MatchCard />
-           <MatchCard />
-           <MatchCard />
+           <MatchDetails />
+           <MatchDetails />
+           <MatchDetails />
         </div>
-    )
+    );
 }
 
 export default TeamPage
