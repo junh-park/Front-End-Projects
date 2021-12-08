@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MatchCard = () => {
+const MatchCard = ({match}) => {
     return (
         <div>
             Match card
