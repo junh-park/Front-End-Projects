@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 const MatchDetails = ({teamName, match}) => {
     if (!match) return null;
-    const otherTeam = match.team1 === teamName ? match.team2 : match.team1
-    const otherTeamLink = `/teams/${otherTeam}`
+    const opposingTeam = match.team1 === teamName ? match.team2 : match.team1
+    const opposingTeamLink = `/teams/${opposingTeam}`
     return (
         <div className="MatchDetail">
-            <h3>vs <Link to={otherTeamLink}>{otherTeam}</Link></h3>
+            <h3>vs <Link to={opposingTeamLink}>{opposingTeam}</Link></h3>
             <p>{match.matchWinner} by {match.resultMargin} {match.result}</p>
         </div>
     );
