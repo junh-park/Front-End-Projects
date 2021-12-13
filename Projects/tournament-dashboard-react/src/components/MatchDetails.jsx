@@ -1,15 +1,27 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
-const MatchDetails = ({teamName, match}) => {
+const Container = styled.div`
+`
+const MatchTeam = styled.div`
+`
+const MatchInfo = styled.h3`
+    text-decoration: none;
+`
+const MatchDetails = ({ teamName, match }) => {
     if (!match) return null;
     const opposingTeam = match.team1 === teamName ? match.team2 : match.team1
     const opposingTeamLink = `/teams/${opposingTeam}`
     return (
-        <div className="MatchDetail">
-            <h3>vs <Link to={opposingTeamLink}>{opposingTeam}</Link></h3>
-            <p>{match.matchWinner} by {match.resultMargin} {match.result}</p>
-        </div>
+        <Container>
+            <MatchTeam>
+                <MatchInfo>
+                    vs <Link to={opposingTeamLink} style={{ color: 'black', textDecoration: 'none' }}>{opposingTeam}</Link>
+                </MatchInfo>
+                {match.matchWinner} by {match.resultMargin} {match.result}
+            </MatchTeam>
+        </Container>
     );
 }
 

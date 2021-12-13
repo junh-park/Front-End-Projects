@@ -1,13 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-import Navbar from './Navbar';
 
 const Container = styled.div`
     display: flex;
 `
 const MatchTeam = styled.h3`
+    justify-content: center;
     text-align: center;
+`
+
+const OpposingTeam = styled.h3`
+    justify-content: center;
+    text-decoration: none;
+`
+
+const MatchInfo = styled.h4`
 `
 
 const MatchCard = ({ teamName, match }) => {
@@ -17,12 +25,15 @@ const MatchCard = ({ teamName, match }) => {
 
     return (
         <Container>
-            <Navbar />
             <MatchTeam>
-                vs <Link to={opposingTeamUrl}>{opposingTeam}</Link>
-                <h2>{match.date}</h2>
-                <h3>at {match.venue}</h3>
-                <h3>{match.matchWinner} by {match.resultMargin} {match.result}</h3>
+                <OpposingTeam>
+                    vs <Link to={opposingTeamUrl} style={{ color: 'black', textDecoration: 'none' }}>{opposingTeam}</Link>
+                </OpposingTeam>
+                <MatchInfo>
+                    {match.date}
+                    at {match.venue}
+                    {match.matchWinner} by {match.resultMargin} {match.result}
+                </MatchInfo>
             </MatchTeam>
         </Container>
     );
