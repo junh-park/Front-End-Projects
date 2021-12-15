@@ -4,6 +4,7 @@ import MatchCard from '../components/MatchCard'
 
 const MatchPage = () => {
     const [matches, setMatches] = useState([]);
+    const [team, setTeam] = useState("");
     const { teamName, year } = useParams();
 
     useEffect(
@@ -11,7 +12,7 @@ const MatchPage = () => {
             const fetchMatches = async () => {
                 const res = await fetch(`http://localhost:8080/teams/${teamName}/matches?year=${year}`)
                 const data  = await res.json()
-                console.log(data)
+                setTeam(teamName)
                 setMatches(data)
             }
             fetchMatches();
@@ -20,8 +21,8 @@ const MatchPage = () => {
 
     return (
         <div>
-           <h3>Match Page</h3>
-           {matches.map(match => <MatchCard key={match.id} teamName={match.teamName} match={match} />)}
+           <h3>Match Page {teamName}</h3>
+           {matches.map(match => <MatchCard key={match.id} teamName={team} match={match} />)}
         </div>
     );
 }
