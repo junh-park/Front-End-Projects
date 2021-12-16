@@ -15,7 +15,7 @@ export const paths = [
     }
 ];
 
-export const teamPaths = [
+export const teamData = [
     { 
         name: "Melbourne Stars",
         teamIcon: "/images/teamImages/melbourne_stars.png" 

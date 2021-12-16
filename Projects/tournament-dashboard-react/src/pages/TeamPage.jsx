@@ -2,6 +2,7 @@ import {React, useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import MatchCard from '../components/MatchCard'
 import MatchDetails from '../components/MatchDetails'
+import styled from 'styled-components'
 
 const TeamPage = () => {
     const [team, setTeam] = useState({matches: []});
@@ -9,13 +10,13 @@ const TeamPage = () => {
 
     useEffect(
         () => {
-            const fetchMatches = async () => {
+            const getTeam = async () => {
                 const res = await fetch(`http://localhost:8080/teams/${teamName}`)
                 const data  = await res.json()
                 console.log(data)
                 setTeam(data)
             }
-            fetchMatches();
+            getTeam();
         }, [teamName]
     );
     

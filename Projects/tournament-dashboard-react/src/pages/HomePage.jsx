@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { path } from '../static/PathsData'
+import { teamData } from '../static/PathsData'
 const Container = styled.div`
     display: flex;
     flex-direction: row;
@@ -24,10 +24,22 @@ const TeamCard = styled.div`
     border-radius: 5px;
     border: 0.2rem solid black;
     flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+`
+const TeamIcon = styled.img`
+    width: 70px;
+    height: 70px;
+    border: 1px solid black;
+    border-radius: 30%;
 `
 const TeamInfo = styled.p`
     font-size: 1.4rem;
     font-weight: bold;
+    text-align: center;
 `
 const HomePage = () => {
     const [teams, setTeams] = useState([]);
@@ -47,8 +59,9 @@ const HomePage = () => {
         <Container>
             {teams.map(team => {
                 return (
-                    <StyledLink to={`/teams/${team.teamName}`}>
+                    <StyledLink key={team.teamName} to={`/teams/${team.teamName}`}>
                         <TeamCard>
+                            <TeamIcon src={teamData.find(tData => tData.name === team.teamName).teamIcon} />
                             <TeamInfo>{team.teamName}</TeamInfo>
                         </TeamCard>
                     </StyledLink>

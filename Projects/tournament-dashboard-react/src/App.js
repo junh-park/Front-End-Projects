@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Sidebar from './components/Sidebar'
 import WebRoutes from './WebRoutes';
 import "./App.css";
 

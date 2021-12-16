@@ -11,6 +11,7 @@ const SidebarParent = styled.div`
     top: 0;
     z-index: 100;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    border-right: 2px solid black;
 `
 const SidebarItem = styled.div`
     padding: 16px 24px;
@@ -39,16 +40,15 @@ const Image = styled.img`
 const StyledLink = styled(Link)`
     text-decoration: none;
 `
-const Sidebar = (props, { defaultActive }) => {
+const Sidebar = ({ defaultActive }) => {
     const [activeIndex, setActiveIndex] = useState(defaultActive || 0)
-    console.log(props)
 
     return (
         <SidebarParent>
             {
                 paths.map((item, index) => {
                     return (
-                        <StyledLink to={item.path}>
+                        <StyledLink key={item.name} to={item.path}>
                             <SidebarItem
                                 key={item.name}
                                 active={index === activeIndex}

@@ -1,19 +1,21 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-import { teamPaths } from '../static/PathsData';
+import { teamData } from '../static/PathsData';
 
 const Container = styled.div`
+    margin: 1rem;
+    padding: 1rem;
+`
+const MatchTeam = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     align-content: space-around;
-    margin: 1rem;
-    padding: 1rem;
-`
-const MatchTeam = styled.div`
+    height: 20vh;
+    width: 50vw;
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px;
@@ -34,33 +36,40 @@ const Image = styled.img`
 const TeamDesc = styled.p`
 `
 const StyledLink = styled(Link)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
-    color: palevioletred;
+    color: #595959;
 `
 const MatchInfo = styled.h4`
+`
+const Result = styled.h4`
+    color: ${props => props.resultText ? "#1a78ae" : "#c6443e"};
 `
 const MatchCard = ({ teamName, match }) => {
     if (!match) return null;
     const opposingTeam = match.team1 === teamName ? match.team2 : match.team1
     const opposingTeamUrl = `/teams/${opposingTeam}`
-    const win = match.matchWinner === teamName
+    const win = match.matchWinner === teamName;
 
-    console.log(match)
     return (
         <Container>
-
             <MatchTeam winBanner={win}>
                 <OpposingTeam>
-                    vs <StyledLink to={opposingTeamUrl}>
-                        <Image src={teamPaths.filter(team => team.name === opposingTeam).pop().teamIcon} />
+                    <b>vs</b>
+                    <StyledLink to={opposingTeamUrl}>
+                        <Image src={teamData.find(team => team.name === opposingTeam).teamIcon} />
                         <TeamDesc>{opposingTeam}</TeamDesc>
                     </StyledLink>
                 </OpposingTeam>
-                {win ? "Win" : "Loss"}
+                <Result resultText={win}>{win ? "Win" : "Loss"}</Result>
                 <MatchInfo>
                     <p>{match.date}</p>
                     <p>at {match.venue}</p>
                     <p>{match.matchWinner} won by {match.resultMargin} {match.result}</p>
+                    <p>{match.playerOfMatch}</p>
                 </MatchInfo>
             </MatchTeam>
         </Container>
