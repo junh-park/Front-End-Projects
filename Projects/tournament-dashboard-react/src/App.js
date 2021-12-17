@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import WebRoutes from './WebRoutes';
 import "./App.css";
+import Sidebar from './components/Sidebar';
+import { HomePage } from './pages/HomePage';
 
 const Container = styled.div`
   display: flex;
@@ -10,7 +11,8 @@ function App() {
 
   return (
     <Container>
-      <WebRoutes />
+      <Sidebar />
+      <HomePage />
     </Container>
   );
 }

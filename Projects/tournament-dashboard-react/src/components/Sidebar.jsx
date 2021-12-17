@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { paths } from '../static/PathsData'
 
-const SidebarParent = styled.div`
+const SidebarParent = styled.nav`
     background: #232f46;
     min-width: 240px;
     height: 100vh;
@@ -13,7 +13,7 @@ const SidebarParent = styled.div`
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     border-right: 2px solid black;
 `
-const SidebarItem = styled.div`
+const SidebarItem = styled.li`
     padding: 16px 24px;
     background: ${props => props.active ? "rgb(94,121,182)" : ""};
     margin: 4px 12px;
