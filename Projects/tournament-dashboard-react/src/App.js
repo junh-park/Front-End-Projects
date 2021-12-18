@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router';
 import styled from 'styled-components'
 import "./App.css";
 import Sidebar from './components/Sidebar';
@@ -12,7 +13,7 @@ function App() {
   return (
     <Container>
       <Sidebar />
-      <HomePage />
+      <Outlet />
     </Container>
   );
 }

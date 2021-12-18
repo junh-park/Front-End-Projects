@@ -19,8 +19,8 @@ ReactDOM.render(
             <Route path=":teamName" element={<TeamPage />} />
             <Route path=":teamName/matches/:year" element={<MatchPage />} />
           </Route>
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router >
   </React.StrictMode>,

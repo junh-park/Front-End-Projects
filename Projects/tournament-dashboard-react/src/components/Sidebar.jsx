@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { paths } from '../static/PathsData'
+import { NavItems } from '../static/PathsData'
+import SideItem from './SideItem'
 
 const SidebarParent = styled.nav`
     background: #232f46;
@@ -13,53 +13,23 @@ const SidebarParent = styled.nav`
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     border-right: 2px solid black;
 `
-const SidebarItem = styled.li`
-    padding: 16px 24px;
-    background: ${props => props.active ? "rgb(94,121,182)" : ""};
-    margin: 4px 12px;
-    border-radius: 4px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
 
-    &:hover {
-        cursor:pointer;
-        background: ${props => props.active ? "" : "rgb(57,74,111)"};
-    }    
-`
-const Item = styled.p`
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-`
-const Image = styled.img`
-    height: 1.7rem;
-`
-const StyledLink = styled(Link)`
-    text-decoration: none;
-`
 const Sidebar = ({ defaultActive }) => {
     const [activeIndex, setActiveIndex] = useState(defaultActive || 0)
 
     return (
         <SidebarParent>
+            <h1>sidebar</h1>
             {
-                paths.map((item, index) => {
-                    return (
-                        <StyledLink key={item.name} to={item.path}>
-                            <SidebarItem
-                                key={item.name}
-                                active={index === activeIndex}
-                                onClick={() => setActiveIndex(index)}
-                            >
-                                <Image src={item.icon} />
-                                <Item>{item.name}</Item>
-                            </SidebarItem>
-                        </StyledLink>
-                    );
-                })
+                NavItems.map((item, index) => 
+                    <SideItem 
+                        key={item.name} 
+                        item={item} 
+                        index={index} 
+                        activeIndex={activeIndex} 
+                        setActiveIndex={setActiveIndex} 
+                    />
+                )
             }
         </SidebarParent>
     );

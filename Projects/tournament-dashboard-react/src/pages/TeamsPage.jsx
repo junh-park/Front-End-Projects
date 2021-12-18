@@ -19,7 +19,7 @@ const TeamsPage = () => {
 
     useEffect(() => {
         const fetchTeams = async () => {
-            const res = await fetch(`http://localhost:8080/teams`)
+            const res = await fetch(`/teams`)
             const data = await res.json()
             console.log(data)
             setTeams(data)
