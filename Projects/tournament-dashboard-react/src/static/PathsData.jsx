@@ -1,9 +1,15 @@
 
 export const NavItems = [
     {
-        name: "Teams",
+        name: "Home",
         icon: "/images/BBL.png",
         path: "/teams",
+        links:[],
+        open: false
+    },
+    {
+        name: "Teams",
+        icon: "",
         links: [
             {
                 title: "Melbourne Stars",
@@ -38,6 +44,13 @@ export const NavItems = [
                 to: "/teams/Brisbane Heat"            
             },
         ],
+        open: false
+    },
+    {
+        name: "More to come...",
+        icon: "",
+        path: "",
+        links:[],
         open: false
     },
 ];

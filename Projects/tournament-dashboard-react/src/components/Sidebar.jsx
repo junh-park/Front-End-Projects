@@ -10,22 +10,20 @@ const SidebarParent = styled.nav`
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    box-shadow: inset -1px 0 0 rgba(122,122, 122, .1);
     border-right: 2px solid black;
 `
 
 const Sidebar = ({ defaultActive }) => {
-    const [activeIndex, setActiveIndex] = useState(defaultActive || 0)
+    const [activeIndex, setActiveIndex] = useState(defaultActive)
 
     return (
         <SidebarParent>
-            <h1>sidebar</h1>
-            {
+            {   
                 NavItems.map((item, index) => 
                     <SideItem 
                         key={item.name} 
                         item={item} 
-                        index={index} 
                         activeIndex={activeIndex} 
                         setActiveIndex={setActiveIndex} 
                     />

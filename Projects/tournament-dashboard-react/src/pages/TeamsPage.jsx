@@ -9,6 +9,8 @@ const Container = styled.div`
     grid-gap: 5px;
     margin: 3rem;
     padding: 2rem;
+    justify-content: center;
+    align-items: center;
 `
 const StyledLink = styled(Link)`
     text-decoration: none;

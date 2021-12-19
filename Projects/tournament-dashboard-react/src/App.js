@@ -7,13 +7,19 @@ import { HomePage } from './pages/HomePage';
 const Container = styled.div`
   display: flex;
   background: #eaeaea;
+  gap: 20px;
+  div {
+
+  }
+
 `
 function App() {
-
   return (
     <Container>
       <Sidebar />
-      <Outlet />
+      <div>
+        <Outlet />
+      </div>
     </Container>
   );
 }
